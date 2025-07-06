@@ -10,59 +10,82 @@
 <body>
   <div class="container">
     <h1>cursorBlock.js</h1>
-    <p class="subtitle">Библиотека для создания кастомного блока, преследующего курсор и реагирующего на наведение</p>
+    <p class="subtitle">Простая библиотека, чтобы показать блок при наведении и следовать за курсором</p>
 
     <section>
-      <h2>Подключение</h2>
+      <h2>1. Что делает эта библиотека?</h2>
+      <p>
+        При наведении на элемент с атрибутом <code>data-cursor-text</code>, на экране появляется блок,
+        который:
+      </p>
+      <ul>
+        <li>Появляется с анимацией</li>
+        <li>Следует за курсором</li>
+        <li>Меняет текст внутри себя на тот, что указан в <code>data-cursor-text</code></li>
+        <li>Скрывается, когда курсор уходит</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. Подключение</h2>
+      <p>Добавьте перед закрывающим тегом <code>&lt;/body&gt;</code>:</p>
       <pre><code>&lt;script src="https://danyaeast.github.io/scripts/text-block-script/textBlock.js"&gt;&lt;/script&gt;</code></pre>
     </section>
 
     <section>
-      <h2>HTML-структура</h2>
+      <h2>3. HTML-структура (обязательная)</h2>
       <pre><code>&lt;div class="section-one"&gt;
   &lt;div data-cursor="object"&gt;
-    &lt;div data-cursor="replace"&gt;Текст будет заменён&lt;/div&gt;
+    &lt;div data-cursor="replace"&gt;Этот текст будет заменён&lt;/div&gt;
   &lt;/div&gt;
 
   &lt;div data-cursor-text="Привет"&gt;Наведи сюда&lt;/div&gt;
   &lt;div data-cursor-text="Пока"&gt;И сюда тоже&lt;/div&gt;
 &lt;/div&gt;</code></pre>
+      <ul>
+        <li><code>data-cursor="object"</code> — блок, который будет появляться и двигаться за курсором</li>
+        <li><code>data-cursor="replace"</code> — текст в этом элементе заменяется при наведении</li>
+        <li><code>data-cursor-text</code> — на этих элементах срабатывает эффект</li>
+      </ul>
     </section>
 
     <section>
-      <h2>Инициализация</h2>
-      <h3>Стандартная</h3>
+      <h2>4. Как запустить (JS)</h2>
+
+      <h3>Простой пример (всё включено по умолчанию)</h3>
       <pre><code>const cursor = new cursorBlock('.section-one');</code></pre>
-      <p>Все параметры по умолчанию уже включены.</p>
 
-      <h3>С настройками</h3>
+      <h3>Пример с настройками</h3>
       <pre><code>const cursor = new cursorBlock('.section-one', {
-  appearEasing: "true",
-  appearOpacity: "true",
-  appearSize: "true",
-  followEasing: "false",
-  disappear: "false",
-  position: "right bottom"
+  appearEasing: "true",      // Появление с анимацией
+  appearOpacity: "true",     // Изменение прозрачности
+  appearSize: "true",        // Увеличение при появлении
+  followEasing: "false",     // Мгновенное следование (без плавности)
+  disappear: "false",        // Не исчезать при уходе
+  position: "right bottom"    // Привязка угла блока к курсору
 });</code></pre>
-      <p>Можно переопределить любые параметры, оставив остальные по умолчанию.</p>
     </section>
 
     <section>
-      <h2>Настройки</h2>
+      <h2>5. Все доступные настройки</h2>
       <table>
         <thead>
-          <tr><th>Параметр</th><th>Тип</th><th>Описание</th><th>По умолчанию</th></tr>
+          <tr><th>Параметр</th><th>Тип</th><th>Что делает</th><th>По умолчанию</th></tr>
         </thead>
         <tbody>
-          <tr><td>appearEasing</td><td>"true" / "false"</td><td>Плавное появление</td><td>"true"</td></tr>
-          <tr><td>appearOpacity</td><td>"true" / "false"</td><td>Анимация непрозрачности</td><td>"true"</td></tr>
-          <tr><td>appearSize</td><td>"true" / "false"</td><td>Анимация увеличения</td><td>"true"</td></tr>
-          <tr><td>followEasing</td><td>"true" / "false"</td><td>Плавное следование за курсором</td><td>"true"</td></tr>
-          <tr><td>disappear</td><td>"true" / "false"</td><td>Скрытие при уходе</td><td>"true"</td></tr>
-          <tr><td>position</td><td>string</td><td>Положение блока относительно курсора</td><td>"center"</td></tr>
+          <tr><td>appearEasing</td><td>"true" / "false"</td><td>Плавное появление (с easing)</td><td>"true"</td></tr>
+          <tr><td>appearOpacity</td><td>"true" / "false"</td><td>Меняет прозрачность от 0 до 100%</td><td>"true"</td></tr>
+          <tr><td>appearSize</td><td>"true" / "false"</td><td>Увеличивается при появлении</td><td>"true"</td></tr>
+          <tr><td>followEasing</td><td>"true" / "false"</td><td>Плавно догоняет курсор (иначе — резко)</td><td>"true"</td></tr>
+          <tr><td>disappear</td><td>"true" / "false"</td><td>Скрывается при уходе с активной зоны</td><td>"true"</td></tr>
+          <tr><td>position</td><td>string</td><td>Где блок будет относительно курсора</td><td>"center"</td></tr>
         </tbody>
       </table>
-      <p>Возможные значения <code>position</code>: <code>"left top"</code>, <code>"right bottom"</code>, <code>"center"</code>, и другие варианты (см. код).</p>
+      <p>
+        Возможные значения <code>position</code>:<br>
+        <code>"left top"</code>, <code>"right top"</code>, <code>"left bottom"</code>, <code>"right bottom"</code>,<br>
+        <code>"center"</code>, <code>"left center"</code>, <code>"right center"</code>, <code>"center top"</code>, <code>"center bottom"</code>
+      </p>
     </section>
 
     <footer>
