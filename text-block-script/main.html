@@ -31,8 +31,20 @@
 
     <section>
       <h2>Инициализация</h2>
+      <h3>Стандартная</h3>
       <pre><code>const cursor = new cursorBlock('.section-one');</code></pre>
       <p>Все параметры по умолчанию уже включены.</p>
+
+      <h3>С настройками</h3>
+      <pre><code>const cursor = new cursorBlock('.section-one', {
+  appearEasing: "true",
+  appearOpacity: "true",
+  appearSize: "true",
+  followEasing: "false",
+  disappear: "false",
+  position: "right bottom"
+});</code></pre>
+      <p>Можно переопределить любые параметры, оставив остальные по умолчанию.</p>
     </section>
 
     <section>
