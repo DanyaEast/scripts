@@ -2,31 +2,31 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>cursorBlock.js — Документация</title>
   <link rel="stylesheet" href="main.css">
   <script src="https://danyaeast.github.io/scripts/text-block-script/textBlock.js"></script>
 </head>
 <body>
-  <div class="wrapper">
+  <div class="layout">
     <aside class="sidebar">
-      <h2>Содержание</h2>
-      <nav>
-        <a href="#what">Что делает</a>
-        <a href="#usage">Использование</a>
-        <a href="#html-structure">HTML‑структура</a>
-        <a href="#init">Инициализация</a>
-        <a href="#options">Настройки</a>
+      <h2 class="sidebar-title">Содержание</h2>
+      <nav class="sidebar-nav">
+        <a href="#section-what">Что делает</a>
+        <a href="#section-connect">Подключение</a>
+        <a href="#section-html">HTML-структура</a>
+        <a href="#section-init">Инициализация</a>
+        <a href="#section-options">Настройки</a>
       </nav>
     </aside>
-
-    <main class="content">
-      <header>
+    
+    <main class="main">
+      <header class="header">
         <h1>cursorBlock.js</h1>
-        <p class="subtitle">Библиотека для блока, который появляется и следует за курсором</p>
+        <p class="subtitle">Библиотека для блока, который появляется и следует за курсором</p>
       </header>
 
-      <section id="what">
+      <section id="section-what" class="card">
         <h2>1. Что делает эта библиотека?</h2>
         <ul>
           <li>Появляется при наведении на <code>data-cursor-text</code></li>
@@ -36,13 +36,13 @@
         </ul>
       </section>
 
-      <section id="usage">
+      <section id="section-connect" class="card">
         <h2>2. Подключение</h2>
         <pre><code>&lt;script src="https://danyaeast.github.io/scripts/text-block-script/textBlock.js"&gt;&lt;/script&gt;</code></pre>
       </section>
 
-      <section id="html-structure">
-        <h2>3. HTML‑структура (обязательно)</h2>
+      <section id="section-html" class="card">
+        <h2>3. HTML-структура (обязательно)</h2>
         <pre><code>&lt;div class="section-one"&gt;
   &lt;div data-cursor="object"&gt;
     &lt;div data-cursor="replace"&gt;Текст будет заменён&lt;/div&gt;
@@ -58,12 +58,12 @@
         </ul>
       </section>
 
-      <section id="init">
+      <section id="section-init" class="card">
         <h2>4. Инициализация</h2>
-        <h3>📘 По умолчанию</h3>
+        <h3>Базовая</h3>
         <pre><code>const cursor = new cursorBlock('.section-one');</code></pre>
 
-        <h3>⚙ С настройками</h3>
+        <h3>С настройками</h3>
         <pre><code>const cursor = new cursorBlock('.section-one', {
   appearEasing: "true",
   appearOpacity: "true",
@@ -74,26 +74,25 @@
 });</code></pre>
       </section>
 
-      <section id="options">
+      <section id="section-options" class="card">
         <h2>5. Настройки</h2>
         <table>
           <thead>
-            <tr><th>Параметр</th><th>Тип/значения</th><th>Описание</th><th>По умолчанию</th></tr>
+            <tr><th>Параметр</th><th>Тип</th><th>Описание</th><th>По умолчанию</th></tr>
           </thead>
           <tbody>
-            <tr><td>appearEasing</td><td>"true"/"false"</td><td>Плавное появление</td><td>"true"</td></tr>
-            <tr><td>appearOpacity</td><td>"true"/"false"</td><td>Анимация прозрачности</td><td>"true"</td></tr>
-            <tr><td>appearSize</td><td>"true"/"false"</td><td>Увеличение при появлении</td><td>"true"</td></tr>
-            <tr><td>followEasing</td><td>"true"/"false"</td><td>Плавное следование</td><td>"true"</td></tr>
-            <tr><td>disappear</td><td>"true"/"false"</td><td>Скрытие при уходе курсора</td><td>"true"</td></tr>
-            <tr><td>position</td><td>string</td><td>Положение блока относительно курсора</td><td>"center"</td></tr>
+            <tr><td>appearEasing</td><td>"true" / "false"</td><td>Плавное появление (с easing)</td><td>"true"</td></tr>
+            <tr><td>appearOpacity</td><td>"true" / "false"</td><td>Меняет прозрачность от 0 до 100%</td><td>"true"</td></tr>
+            <tr><td>appearSize</td><td>"true" / "false"</td><td>Увеличивается при появлении</td><td>"true"</td></tr>
+            <tr><td>followEasing</td><td>"true" / "false"</td><td>Плавно догоняет курсор (иначе — резко)</td><td>"true"</td></tr>
+            <tr><td>disappear</td><td>"true" / "false"</td><td>Скрывается при уходе с активной зоны</td><td>"true"</td></tr>
+            <tr><td>position</td><td>string</td><td>Где блок будет относительно курсора</td><td>"center"</td></tr>
           </tbody>
         </table>
-        <p>Возможные <code>position</code>:</p>
-        <p><code>left top</code>, <code>right top</code>, <code>left bottom</code>, <code>right bottom</code>, <code>center</code>, <code>left center</code>, <code>right center</code>, <code>center top</code>, <code>center bottom</code>.</p>
+        <p>Поддерживаемые значения <code>position</code>: <code>left top</code>, <code>right top</code>, <code>center</code>, <code>right bottom</code> и т.д.</p>
       </section>
 
-      <footer>
+      <footer class="footer">
         <p>© 2025 DanyaEast — cursorBlock.js</p>
       </footer>
     </main>
