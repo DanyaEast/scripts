@@ -1,103 +1,107 @@
+/* ===== WEBFLOW-STYLE DARK THEME ===== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Code+Pro&display=swap');
 
 :root {
-  --font-base: 'Inter', sans-serif;
+  --font-main: 'Inter', sans-serif;
   --font-mono: 'Source Code Pro', monospace;
 
-  --bg: #111215;
-  --panel: #1f2024;
-  --text: #e5e5e5;
-  --sub: #999999;
-  --border: #2c2d33;
-  --accent: #2970ff;
-  --code-bg: #1b1b1d;
-  --code-text: #f5f5f5;
-
-  --spacing: 1.25rem;
-  --max-width: 900px;
+  --color-bg: #0a0a0a;
+  --color-panel: #161616;
+  --color-text: #f5f5f5;
+  --color-sub: #999;
+  --color-border: #2d2d2d;
+  --color-accent: #2970ff;
+  --color-code-bg: #121212;
+  --color-code-text: #eeeeee;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
-  font-family: var(--font-base);
-  font-size: 1rem;
+  font-family: var(--font-main);
+  font-size: 16px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.6;
-  color: var(--text);
-  background: var(--bg);
 }
 
-.wrapper {
+.layout {
   display: flex;
   min-height: 100vh;
 }
 
 .sidebar {
-  flex: 0 0 200px;
-  background: var(--panel);
-  padding: var(--spacing);
-  border-right: 1px solid var(--border);
+  width: 220px;
+  background-color: var(--color-panel);
+  padding: 2rem 1rem;
+  border-right: 1px solid var(--color-border);
 }
 
-.sidebar h2 {
+.sidebar-title {
   font-size: 1.25rem;
   margin-bottom: 1rem;
-  color: var(--text);
+  font-weight: 500;
 }
 
-.sidebar nav a {
+.sidebar-nav a {
   display: block;
-  margin: 0.5rem 0;
-  color: var(--sub);
+  padding: 0.5rem 0;
+  color: var(--color-sub);
   text-decoration: none;
-  transition: color .2s;
+  font-size: 0.95rem;
+  transition: color 0.2s;
 }
 
-.sidebar nav a:hover {
-  color: var(--accent);
+.sidebar-nav a:hover {
+  color: var(--color-accent);
 }
 
-.content {
+.main {
   flex: 1;
-  max-width: var(--max-width);
-  margin: 2rem auto;
-  padding: 0 var(--spacing);
+  padding: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
-h1 {
-  font-size: 2.5rem;
-  font-weight: 600;
+.header h1 {
+  font-size: 2.25rem;
   margin-bottom: 0.25rem;
+  font-weight: 600;
 }
 
 .subtitle {
-  font-size: 1.125rem;
-  color: var(--sub);
+  font-size: 1rem;
+  color: var(--color-sub);
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
   margin-bottom: 2rem;
 }
 
 h2 {
-  font-size: 1.75rem;
-  font-weight: 500;
-  margin: 2rem 0 var(--spacing);
-  border-bottom: 2px solid var(--border);
-  padding-bottom: 0.25rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 h3 {
-  font-size: 1.375rem;
+  font-size: 1.125rem;
   margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--accent);
-}
-
-p, ul {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-accent);
 }
 
 ul {
-  padding-left: 1.5rem;
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 code {
@@ -105,42 +109,43 @@ code {
   background: rgba(255,255,255,0.05);
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
+  font-size: 0.95rem;
 }
 
 pre {
-  background: var(--code-bg);
-  color: var(--code-text);
+  background: var(--color-code-bg);
+  color: var(--color-code-text);
   padding: 1rem;
   border-radius: 6px;
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  line-height: 1.4;
   overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
   margin-bottom: 1.5rem;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1rem 0 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
 }
 
 th, td {
   padding: 0.75rem 1rem;
-  border: 1px solid var(--border);
-  text-align: left;
+  border: 1px solid var(--color-border);
 }
 
 th {
-  background: var(--panel);
+  background-color: #1c1c1c;
   font-weight: 600;
 }
 
-footer {
-  margin: 3rem 0;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
-  font-size: 0.875rem;
+.footer {
   text-align: center;
-  color: var(--sub);
+  font-size: 0.875rem;
+  color: var(--color-sub);
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
 }
