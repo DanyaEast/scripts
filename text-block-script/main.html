@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cursorBlock.js — Документация</title>
+  <link rel="stylesheet" href="main.css">
+  <script src="https://danyaeast.github.io/scripts/text-block-script/textBlock.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>cursorBlock.js</h1>
+    <p class="subtitle">Библиотека для создания кастомного блока, преследующего курсор и реагирующего на наведение</p>
 
+    <section>
+      <h2>Подключение</h2>
+      <pre><code>&lt;script src="https://danyaeast.github.io/scripts/text-block-script/textBlock.js"&gt;&lt;/script&gt;</code></pre>
+    </section>
+
+    <section>
+      <h2>HTML-структура</h2>
+      <pre><code>&lt;div class="section-one"&gt;
+  &lt;div data-cursor="object"&gt;
+    &lt;div data-cursor="replace"&gt;Текст будет заменён&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div data-cursor-text="Привет"&gt;Наведи сюда&lt;/div&gt;
+  &lt;div data-cursor-text="Пока"&gt;И сюда тоже&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section>
+      <h2>Инициализация</h2>
+      <pre><code>const cursor = new cursorBlock('.section-one');</code></pre>
+      <p>Все параметры по умолчанию уже включены.</p>
+    </section>
+
+    <section>
+      <h2>Настройки</h2>
+      <table>
+        <thead>
+          <tr><th>Параметр</th><th>Тип</th><th>Описание</th><th>По умолчанию</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>appearEasing</td><td>"true" / "false"</td><td>Плавное появление</td><td>"true"</td></tr>
+          <tr><td>appearOpacity</td><td>"true" / "false"</td><td>Анимация непрозрачности</td><td>"true"</td></tr>
+          <tr><td>appearSize</td><td>"true" / "false"</td><td>Анимация увеличения</td><td>"true"</td></tr>
+          <tr><td>followEasing</td><td>"true" / "false"</td><td>Плавное следование за курсором</td><td>"true"</td></tr>
+          <tr><td>disappear</td><td>"true" / "false"</td><td>Скрытие при уходе</td><td>"true"</td></tr>
+          <tr><td>position</td><td>string</td><td>Положение блока относительно курсора</td><td>"center"</td></tr>
+        </tbody>
+      </table>
+      <p>Возможные значения <code>position</code>: <code>"left top"</code>, <code>"right bottom"</code>, <code>"center"</code>, и другие варианты (см. код).</p>
+    </section>
+
+    <footer>
+      <p>© 2025 DanyaEast — cursorBlock.js</p>
+    </footer>
+  </div>
+</body>
+</html>
